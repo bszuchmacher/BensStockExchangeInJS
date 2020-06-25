@@ -1,19 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const symbol = urlParams.get("symbol");
 
-async function getCompanyDetails() {
-  try {
-    const response = await fetch(
-      `https://financialmodelingprep.com/api/v3/company/profile/${symbol}?&apikey=ed93f3e229380c530b7a0e7663f86b99`
-    );
-    const data = await response.json();
-    // console.log(data); all the data from the symbol fetch.
-    displayCompanyData(data);
-  } catch (error) {
-    console.log(error);
-  }
-}
-function displayCompanyData(data) {
+ function displayCompanyData(data) {
   fetch(
     `https://financialmodelingprep.com/api/v3/company/profile/${symbol}?&apikey=ed93f3e229380c530b7a0e7663f86b99`
   )
@@ -85,5 +73,5 @@ function createTheChart(xDates, yPrices) {
   });
 }
 
-getCompanyDetails(symbol);
+displayCompanyData(symbol);
 fetchDataGraph();
