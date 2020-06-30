@@ -1,12 +1,12 @@
 const urlParams = new URLSearchParams(window.location.search);
 const symbol = urlParams.get("symbol");
 
- function displayCompanyData(data) {
+function displayCompanyData(data) {
   fetch(
     `https://financialmodelingprep.com/api/v3/company/profile/${symbol}?&apikey=ed93f3e229380c530b7a0e7663f86b99`
   )
     .then((response) => response.json())
-    .then(function (data) {
+    .then((data) => {
       const {
         companyName,
         industry,
@@ -32,13 +32,6 @@ const symbol = urlParams.get("symbol");
         document.getElementById("percentChange").classList.add("red");
       }
     });
-  //const name = data.profile.companyName;
-  // const imageUrl = data.profile.image;
-  // const description = data.profile.description;
-  // const companyUrl = data.profile.website;
-  // const price = data.profile.price;
-  // const stockChangePercent = data.profile.changesPercentage;
-  // const industry = data.profile.industry;
 }
 function fetchDataGraph() {
   fetch(

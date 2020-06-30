@@ -12,8 +12,7 @@ function createResultsData(item) {
   fetch(
     `https://financialmodelingprep.com/api/v3/company/profile/${item.symbol}?apikey=ed93f3e229380c530b7a0e7663f86b99`
   ).then((response) =>
-    response.json().then(function (data) {
-      // console.log(data);
+    response.json().then((data) => {
       let a = document.createElement("a");
       document.getElementById("resultsList").appendChild(a);
       a.classList.add("list-group-item");
@@ -54,22 +53,18 @@ function createResultsData(item) {
       a.appendChild(changesPercentage);
     })
   );
+
   loaderOff();
 }
 
-function getInitialSearchResults(Input) {
+function getInitialSearchResults(input) {
   let searchInput = document.getElementById("searchInput").value;
   let url = `https://financialmodelingprep.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ&apikey=ed93f3e229380c530b7a0e7663f86b99`;
-  // console.log(url);
-  // console.log(searchInput);
   loaderOn();
   fetch(url)
     .then((response) => response.json())
-    .then(function (initialCompanyInfo) {
-      // console.log(url);
-      // console.log(initialCompanyInfo);//thats my array returned to me.
+    .then((initialCompanyInfo) => {
       initialCompanyInfo.map((item) => {
-        //symbol and name accessed
         createResultsData(item);
       });
     });
