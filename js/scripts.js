@@ -8,9 +8,9 @@ function loaderOff() {
   document.getElementById("loader").classList.add("hide");
 }
 
-function createResultsData(item) {
+function createResultsData(data) {
   fetch(
-    `https://financialmodelingprep.com/api/v3/company/profile/${item.symbol}?apikey=ed93f3e229380c530b7a0e7663f86b99`
+    `https://financialmodelingprep.com/api/v3/company/profile/${data.symbol}?apikey=ed93f3e229380c530b7a0e7663f86b99`
   ).then((response) =>
     response.json().then((data) => {
       let a = document.createElement("a");
@@ -57,7 +57,7 @@ function createResultsData(item) {
   loaderOff();
 }
 
-function getInitialSearchResults(input) {
+function getInitialSearchResults(searchInput) {
   let searchInput = document.getElementById("searchInput").value;
   let url = `https://financialmodelingprep.com/api/v3/search?query=${searchInput}&limit=10&exchange=NASDAQ&apikey=ed93f3e229380c530b7a0e7663f86b99`;
   loaderOn();

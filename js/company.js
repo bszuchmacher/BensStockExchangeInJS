@@ -39,18 +39,18 @@ function fetchDataGraph() {
   ).then((response) =>
     response.json().then((data) => {
       //the array historical contains 2 items... date and closes
-      let historical = data.historical;
-      let dates = historical.map((companyfetched) => companyfetched.date);
+      const historical = data.historical;
+      const dates = historical.map((companyfetched) => companyfetched.date);
       xDates = dates.slice(Math.max(dates.length - 10, 0));
-      let closes = historical.map((companyfetched) => companyfetched.close);
+      const closes = historical.map((companyfetched) => companyfetched.close);
       yPrices = closes.slice(Math.max(closes.length - 10, 0));
       createTheChart(xDates, yPrices);
     })
   );
 }
 function createTheChart(xDates, yPrices) {
-  var ctx = document.getElementById("myChart").getContext("2d");
-  var chart = new Chart(ctx, {
+  const ctx = document.getElementById("myChart").getContext("2d");
+  const chart = new Chart(ctx, {
     type: "line",
     data: {
       labels: xDates,
