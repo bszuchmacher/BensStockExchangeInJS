@@ -1,6 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAD9/f0AAAAAAP///wDx8fEA+vr6APz8/ADu7u4A/v7+APDw8AD5+fkA8vLyAAwM6AD7+/sAAAAAAAAAAAAAAAAAEREREREREREREbuxG7sRERERsRuxGxEREREbsRuxERERZxERERFAEREmEREREagREREYK7YhERERESUSYWIRERFnaBYhJkAREVFZNTU1GhEREcERERwRERERG3Z2sRERERG7u7u7EREREbu7u7sRERERG7u7sRERERERERERERHxjwAA4AcAAOAHAADAAwAAgAEAAIABAADAAwAAwAMAAIABAACAAQAAwAMAAMADAADgBwAA4AcAAPAPAAD4HwAA" rel="icon" type="image/x-icon">
     <title>ITC Template</title>
     <meta name="description" content="Stock Exchange" />
     <meta name="author" content="Ben Szuchmacher" />
@@ -16,47 +17,40 @@
     />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-
-  <body>
-    <div class="container col-12 mt-2">
-      <div class="row mt-5">
-        <div class="col-12 mt-5 d-flex justify-content-center">
-          <h1 class="display-2">Ben's Nasdaq Stock Search!</h1>
+  <style>
+  body{
+    background-image: url("./eye.jpg");
+      } 
+  </style>
+  </body> 
+      <div class="row-md-6">
+        <div class="stockTicker">
+          <p id="stockTicker"></p>
         </div>
+              <div class="col-12 mt-5 mb-5 d-flex justify-content-center">
+                <h1 class="display-1">Ben's Nasdaq Stock Search!</h1>
+              </div>
+              <div class="mb-4" id="form"></div>
+              <div id="display-result">
+                <ul id="resultsList"></ul>
+              </div>
       </div>
-      <div class="row mt-5">
-        <div class="offset-2 col-8">
-          <div class="input-group mb-3">
-            <input
-              type="text"
-              id="searchInput"
-              class="form-control"
-              aria-label="Stock Symbol"
-            />
-            <div class="input-group-append">
-              <button id="searchButton" class="btn btn-success" type="button">
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="offset-2 col-8 d-flex justify-content-center">
-          <div id="loader" class="loader loader-position"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="offset-2 col-8">
-          <ul id="resultsList" class="list-group list-group-flush"></ul>
-        </div>
-      </div>
-    </div>
-    <script src="js/scripts.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+        <!-- <script src="./js/scripts.js"></script> -->
+            <script src="./js/Marquee.js"></script>
+            <script src="./js/SearchForm.js"></script>
+            <script src="./js/SearchResults.js"></script>
+            
+            <script>
+              (async function () {
+                const myMarquee = new Marquee(document.getElementById("stockTicker"), 100);
+                myMarquee.getMarqueeDataFromFetch();
+                const form = new SearchForm(document.getElementById("form"));
+                const result = new SearchResults(document.getElementById('resultsList'));
+                form.onSearch((companies) => {
+                  result.displayResults(companies)
+                })
+              })()
+          
+            </script>
+          </body>
+          </html>
