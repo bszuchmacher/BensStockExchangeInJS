@@ -1,15 +1,16 @@
 body {
-  background-image: url("file:///Users/benszuchmacher/Desktop/ITCFolder/Week4/js-project-2-stock-exchange-bszuchmacher-1/companystock.jpg");
+  background-image: url("file:./companystock.jpg");
   background-size: cover;
   width: 100vw;
   height: 100vh;
   font-family: "Architects Daughter";
 }
 
-.mark {
-  background: #fdff00;
-  color: black;
+.wordSpacing {
+  margin-left: 10px;
+  font-size: 22px;
 }
+
 
 .listStyle {
   display: flex;
@@ -116,10 +117,14 @@ body {
 
 .red {
   color: red;
+  font-size: 22px;
+  margin-left:10px;
 }
 
 .green {
   color: green;
+  font-size: 22px;
+  margin-left: 10px;
 }
 
 .black {
@@ -132,6 +137,7 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: solid 1px #ced4da;
+  margin-left: 22px;
 }
 
 a {
@@ -139,3 +145,4 @@ a {
   color: royalblue;
   background-color: white;
 }
+
