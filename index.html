@@ -30,10 +30,13 @@
               <div class="col-12 mt-5 mb-5 d-flex justify-content-center">
                 <h1 class="display-1">Ben's Nasdaq Stock Search!</h1>
               </div>
-              <div class="mb-4" id="form"></div>
-              <div id="display-result">
-                <ul id="resultsList"></ul>
+              <div class="row mt-5">
+                <div class="offset-1 col-10">
+                  <div class="input-group mb-3" id="form">
               </div>
+                <div id="display-result">
+                  <ul id="resultsList"></ul>
+                </div>
       </div>
         <!-- <script src="./js/scripts.js"></script> -->
             <script src="./js/Marquee.js"></script>
@@ -42,7 +45,7 @@
             
             <script>
               (async function () {
-                const myMarquee = new Marquee(document.getElementById("stockTicker"), 100);
+                const myMarquee = new Marquee(document.getElementById("stockTicker"), 50);
                 myMarquee.getMarqueeDataFromFetch();
                 const form = new SearchForm(document.getElementById("form"));
                 const result = new SearchResults(document.getElementById('resultsList'));
